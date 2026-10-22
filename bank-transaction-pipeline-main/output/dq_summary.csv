@@ -1,0 +1,10 @@
+metric,value
+Files Discovered,11
+Files Read,9
+Files Rejected,2
+Total Records,32
+Valid Records,14
+Invalid Records,18
+Rejection Rate,0.5625
+Duplicate Records,4
+Rejected Files,"BR006_20260906_TRANSACTION.csv, unexpected_file.csv"

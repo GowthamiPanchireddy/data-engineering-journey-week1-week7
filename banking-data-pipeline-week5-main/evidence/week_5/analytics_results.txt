@@ -1,0 +1,195 @@
+WEEK 5 – ANALYTICAL RESULTS EVIDENCE
+
+Project: Banking Data Engineering Pipeline
+
+Analytical database:
+database/analytics.db
+
+---
+
+1. ANALYTICAL DATABASE TABLES
+
+---
+
+Dimension tables:
+
+dim_customer
+dim_account
+dim_branch
+dim_date
+
+Fact table:
+
+fact_transaction
+
+Final fact transaction count:
+20
+
+Unique transaction IDs:
+20
+
+Fact grain:
+
+One row in fact_transaction represents one banking transaction.
+
+---
+
+2. TRANSACTION ACTIVITY BY BRANCH
+
+---
+
+BR001:
+Transaction count: 6
+Total amount: 930.5
+
+BR002:
+Transaction count: 6
+Total amount: 1355.0
+
+BR003:
+Transaction count: 8
+Total amount: 2450.0
+
+All transactions have valid branch references in the analytical database.
+
+T4004 uses account A1002, which belongs to branch BR001.
+
+---
+
+3. TRANSACTION ACTIVITY BY TYPE
+
+---
+
+CREDIT:
+Transaction count: 11
+Total amount: 4060.0
+
+DEBIT:
+Transaction count: 9
+Total amount: 675.5
+
+---
+
+4. CUSTOMER ACTIVITY
+
+---
+
+Ava Thompson:
+4 transactions
+Total amount: 1585.0
+
+Daniel Kim:
+2 transactions
+Total amount: 100.0
+
+Ethan Brown:
+4 transactions
+Total amount: 865.0
+
+Maya Patel:
+4 transactions
+Total amount: 830.5
+
+Noah Williams:
+2 transactions
+Total amount: 85.0
+
+Sofia Martinez:
+4 transactions
+Total amount: 1270.0
+
+---
+
+5. ACTIVITY BY DATE
+
+---
+
+2026-09-06:
+10 transactions
+Total amount: 3475.5
+
+2026-09-07:
+4 transactions
+Total amount: 485.0
+
+2026-09-08:
+3 transactions
+Total amount: 260.0
+
+2026-09-09:
+3 transactions
+Total amount: 515.0
+
+---
+
+6. HIGH-VALUE TRANSACTIONS
+
+---
+
+T3001:
+CREDIT
+1000.0
+
+T2001:
+CREDIT
+900.0
+
+T1001:
+CREDIT
+550.0
+
+---
+
+7. INCREMENTAL CORRECTIONS VERIFIED
+
+---
+
+T4004:
+Account changed/loaded as A1002
+Branch: BR001
+Amount: 35.0
+
+T1001:
+Corrected amount: 550.0
+
+T4002:
+Corrected amount: 55.0
+
+Final fact transaction count:
+20
+
+Final unique transaction IDs:
+20
+
+---
+
+8. ANALYTICAL SUMMARY
+
+---
+
+The analytical database was successfully built from the operational banking database.
+
+The fact table contains 20 banking transactions.
+
+The fact table maintains one row per banking transaction.
+
+The analytical SQL queries successfully provide transaction activity by:
+
+* Branch
+* Transaction type
+* Customer
+* Account
+* Date
+* Branch and account type
+* Customer credit/debit activity
+* High-value transactions
+
+The corrected September 7 daily file was processed successfully.
+
+Transaction T4004 now references account A1002, which belongs to branch BR001.
+
+The incremental loading process also preserved the corrected values for T1001 and T4002.
+
+Note:
+
+CREDIT and DEBIT amounts are stored as positive transaction amounts. Therefore, SUM(amount) should not automatically be interpreted as net cash flow or account balance.

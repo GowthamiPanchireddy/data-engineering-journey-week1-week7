@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+
+# Dagster temporary files
+.tmp_dagster_home_*/
+
+# Local test database
+database/test_banking.db
+
+# Generated reports and backup files
+output/dagster_report.json
+output/dagster_report_success_backup.json
+output/dagster_report_success_original.json
+
+# Backup source files
+src/spark/transformations_backup.py
+
+database/banking.db
+database/analytics.db
